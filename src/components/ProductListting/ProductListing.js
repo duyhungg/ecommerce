@@ -1,9 +1,9 @@
 import React, { useEffect, useCallback, useMemo } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "../redux/actions/productsActions";
-import ProductComponent from "./ProductComponent/ProductComponent";
-
+import { setProducts } from "../../redux/actions/productsActions";
+import ProductComponent from "../ProductComponent/ProductComponent";
+import Slider from "../Slider/Slider";
 const ProductPage = () => {
   const products = useSelector((state) => state.allProducts.products);
   const dispatch = useDispatch();
@@ -22,9 +22,12 @@ const ProductPage = () => {
 
   console.log("Products :", products);
   return (
-    <div className="ui grid container">
-      <ProductComponent />
-    </div>
+    <>
+      <Slider />
+      <div className="ui grid container">
+        <ProductComponent />
+      </div>
+    </>
   );
 };
 

@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ProductListing from "./components/ProductListing";
-import Header from "./components/Headers/Header";
+import ProductListing from "./components/ProductListting/ProductListing";
+import Header from "./components/Header/Header";
 import "./App.css";
-import ProductDetails from "./components/ProductDetails";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
+import Footer from "./components/Footer/Footer";
+
 function App() {
   return (
     <div className="App">
@@ -14,6 +16,8 @@ function App() {
           <Route path="/product/:productId" element={<ProductDetails />} />
           <Route>404 Not Found!</Route>
         </Routes>
+
+        <Footer />
       </Router>
     </div>
   );
