@@ -6,7 +6,10 @@ import {
   selectedProduct,
   removeSelectedProduct,
 } from "../../redux/actions/productsActions";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const ProductDetails = () => {
+  const notify = () => toast("đã thêm sản phẩm vào giỏ hàng");
   const { productId } = useParams();
   let product = useSelector((state) => state.product);
   const { image, title, price, category, description } = product;
@@ -49,11 +52,14 @@ const ProductDetails = () => {
                   <div className="hidden content">
                     <i className="shop icon"></i>
                   </div>
-                  <div className="visible content">Add to Cart</div>
+                  <button className="visible content" onClick={notify}>
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             </div>
           </div>
+          <ToastContainer />
         </div>
       )}
     </div>
